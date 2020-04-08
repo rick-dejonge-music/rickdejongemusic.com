@@ -1,0 +1,1881 @@
+// ========================================
+// App.scss
+// Global styles used for rickdejongemusic.com
+// ========================================
+
+// ========================================
+// MARK: Reset Styles
+// ========================================
+*,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+// fixes outline for carousel to be nothing
+.carousel__slide-focus-ring {
+	outline: none;
+}
+
+// ========================================
+// MARK: Variables
+// ========================================
+
+/* Global vars */
+$color_red: #5f1e27;
+$color_blue: #394c6c;
+$color_darkblue: #031424;
+$color_lightblue: #abc5d2;
+
+$header1_size: 2.5rem;
+$header2_size: 2rem;
+$body_size: 1.5rem;
+
+/* Navbar vars */
+$navbar_height: 4.5rem;
+$navbar_text_highlight_color: #ffffff;
+$navbar_text_color: rgba(255, 255, 255, 0.5);
+
+/* Landing page vars */
+$nav_card_width: 40vw;
+$nav_card_height: 30vw;
+
+// ========================================
+// MARK: Font imports
+// ========================================
+@font-face {
+	font-family: 'PlayfairDisplay-Black';
+	src: url('./assets/fonts/PlayfairDisplay-Black.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-BlackItalic';
+	src: url('./assets/fonts/PlayfairDisplay-BlackItalic.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-Bold';
+	src: url('./assets/fonts/PlayfairDisplay-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-BoldItalic';
+	src: url('./assets/fonts/PlayfairDisplay-BoldItalic.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-ExtraBold';
+	src: url('./assets/fonts/PlayfairDisplay-ExtraBold.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-ExtraBoldItalic';
+	src: url('./assets/fonts/PlayfairDisplay-ExtraBoldItalic.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-Italic';
+	src: url('./assets/fonts/PlayfairDisplay-Italic.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-Medium';
+	src: url('./assets/fonts/PlayfairDisplay-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-MediumItalic';
+	src: url('./assets/fonts/PlayfairDisplay-MediumItalic.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay';
+	src: url('./assets/fonts/PlayfairDisplay-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-SemiBold';
+	src: url('./assets/fonts/PlayfairDisplay-SemiBold.ttf');
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-SemiBoldItalic';
+	src: url('./assets/fonts/PlayfairDisplay-SemiBoldItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Caladea-Bold';
+	src: url('./assets/fonts/Caladea-Bold.ttf');
+}
+@font-face {
+	font-family: 'Caladea-BoldItalic';
+	src: url('./assets/fonts/Caladea-BoldItalic.ttf');
+}
+@font-face {
+	font-family: 'Caladea-Italic';
+	src: url('./assets/fonts/Caladea-Italic.ttf');
+}
+@font-face {
+	font-family: 'Caladea';
+	src: url('./assets/fonts/Caladea-Regular.ttf');
+}
+
+// ========================================
+// MARK: Root Styles
+// ========================================
+.container {
+	width: 100%;
+	background-color: $color_darkblue;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: $color_darkblue;
+}
+
+// ========================================
+// MARK: Navbar
+// ========================================
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0 100px;
+	width: 100%;
+	height: $navbar_height;
+	box-sizing: border-box;
+	z-index: 100;
+	transition: background-color 0.3s ease-in;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav-logo-img {
+	width: 18rem;
+	margin-left: -2rem;
+}
+
+.nav-logo-icon {
+	width: 100px;
+}
+
+header nav {
+	float: right;
+}
+
+header nav ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+header nav ul #link {
+	height: $navbar_height;
+	list-style: none;
+	text-decoration: none;
+	font-family: PlayfairDisplay-Regular;
+	cursor: pointer;
+}
+
+header nav ul #link li {
+	height: $navbar_height;
+	line-height: $navbar_height;
+	padding: 0 20px;
+	color: $navbar_text_color;
+	text-decoration: none;
+}
+
+header nav ul #link:hover li {
+	color: $navbar_text_highlight_color;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header nav ul #link.active li {
+	color: $navbar_text_highlight_color;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu-toggle {
+	color: #fff;
+	float: right;
+	line-height: $navbar_height;
+	font-size: 24px;
+	margin-right: 1rem;
+	cursor: pointer;
+	display: none;
+}
+
+@media (max-width: 1250px) {
+	header {
+		padding: 0 20px;
+	}
+	.menu-toggle {
+		display: block;
+		font-size: 2.5rem;
+	}
+	header nav {
+		position: absolute;
+		width: 100%;
+		height: calc(100vh - 50px);
+		background: #000;
+		top: $navbar_height;
+		left: -100%;
+		transition: 0.5s;
+	}
+	header nav.active {
+		left: 0;
+	}
+	header nav ul {
+		display: block;
+		text-align: center;
+	}
+	header nav ul #link li {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	}
+}
+
+@media (max-width: 530px) {
+	.nav-logo-img {
+		display: none;
+	}
+}
+
+@media (max-width: 320px) {
+	.menu-toggle {
+		margin-right: 3rem;
+	}
+}
+
+// ========================================
+// MARK: Landing Page
+// ========================================
+.lp-root {
+	display: flex;
+	flex-direction: column;
+}
+
+.lp-cards-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex: 0.7;
+	width: 100%;
+}
+
+// Holds the call to action and cards
+.lp-root span {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100%;
+}
+
+.lp-card {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+}
+
+.lp-card-title {
+	font-family: PlayfairDisplay;
+	padding-top: 1rem;
+	color: white;
+	text-align: center;
+	max-width: 15rem;
+	height: 2rem;
+}
+
+.lp-card-image {
+	width: 25rem;
+	height: 20rem;
+	background-size: cover;
+	background-repeat: repeat;
+}
+
+.landing-upcomingevents-root {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #031424;
+	margin-bottom: 3rem;
+}
+
+.landing-upcoming-events-title {
+	font-size: 2.5rem;
+	font-family: Caladea;
+	color: white;
+}
+
+.landing-upcoming-events-subtitle {
+	font-family: Caladea;
+	color: $color_lightblue;
+	text-decoration-color: $color_lightblue;
+}
+
+.landing-upcoming-events-subtitle:visited {
+	text-decoration-color: $color_lightblue;
+}
+
+.landing-upcomingevents-eventrowitem-container {
+	width: 72%;
+	border-width: 0;
+	border-top-width: 1px;
+	border-color: #abc5d2;
+	border-style: solid;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+}
+
+.landing-upcomingevents-eventrow-item-column-1 {
+	width: 95%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 1rem;
+}
+
+.landing-upcomingevents-eventrow-item-column-2 {
+	width: 95%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	flex-direction: column;
+	padding-right: 1rem;
+}
+
+.landing-upcomingevents-eventrow-item-eventdate {
+	color: #abc5d2;
+	font-size: 1.2rem;
+	font-family: Caladea;
+}
+
+.landing-upcomingevents-eventrow-item-eventcity {
+	color: $color_lightblue;
+	font-family: Caladea;
+	font-size: 1.4rem;
+	text-align: right;
+}
+
+.landing-upcomingevents-eventrow-item-eventbuildingtime {
+	color: $color_lightblue;
+	font-family: Caladea;
+	font-size: 1rem;
+	text-align: right;
+	max-width: 12rem;
+}
+
+.landing-upcomingevents-eventrow-item-description-small {
+	color: #ffffff;
+	font-family: Caladea;
+	font-size: 1rem;
+	text-align: center;
+	display: none;
+}
+
+.landing-upcomingevents-eventrow-item-description-large {
+	color: #ffffff;
+	font-family: Caladea;
+	font-size: 1rem;
+	text-align: center;
+	align-self: center;
+}
+
+@media only screen and (max-width: 1300px) {
+	.lp-card-image {
+		width: 20rem;
+		height: 16rem;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.lp-card-image {
+		width: 15rem;
+		height: 11rem;
+	}
+	.landing-upcomingevents-eventrow-item-description-small {
+		display: flex;
+		justify-content: center;
+		margin-top: 1rem;
+	}
+	.landing-upcomingevents-eventrow-item-description-large {
+		display: none;
+	}
+	.landing-upcomingevents-eventrowitem-container {
+		flex-direction: column;
+		height: auto;
+		padding: 2rem 0;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.lp-cards-container {
+		margin-top: $navbar_height + 2rem;
+		flex-direction: column;
+	}
+
+	.lp-card-title {
+		height: auto;
+	}
+
+	.lp-card {
+		margin-bottom: 2rem;
+	}
+
+	.lp-card-image {
+		width: 15rem;
+		height: 12rem;
+	}
+
+	.scroll-down-cta {
+		display: none;
+	}
+	.landing-upcomingevents-root {
+		margin-top: 2rem;
+	}
+	.landing-upcoming-events-title {
+		font-size: 2rem;
+	}
+}
+
+// ========================================
+// MARK: Composing & Scoring Page
+// ========================================
+.comp-root {
+	display: flex;
+	flex-direction: column;
+}
+
+.comp-cards-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
+
+.comp-card {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+}
+
+.comp-card-title {
+	font-family: PlayfairDisplay;
+	padding: 1rem;
+	color: white;
+	text-align: center;
+}
+
+.comp-image-film {
+	width: 35rem;
+	height: 30rem;
+	background-image: url('../src/assets/images/composing_and_scoring/film_and_other_media.png');
+	background-size: contain;
+	background-position: center;
+}
+
+.comp-image-composing {
+	width: 35rem;
+	height: 30rem;
+	background-image: url('../src/assets/images/composing_and_scoring/orch_and_conducting.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+@media only screen and (max-width: 1300px) {
+	.comp-image-film {
+		width: 25rem;
+		height: 20rem;
+	}
+
+	.comp-image-composing {
+		width: 25rem;
+		height: 20rem;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.comp-image-film {
+		width: 18rem;
+		height: 13rem;
+	}
+
+	.comp-image-composing {
+		width: 18rem;
+		height: 13rem;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.comp-cards-container {
+		flex-direction: column;
+	}
+	.comp-image-film {
+		width: 18rem;
+		height: 13rem;
+	}
+
+	.comp-image-composing {
+		width: 18rem;
+		height: 13rem;
+	}
+}
+
+@media only screen and (max-width: 325px) {
+	.comp-cards-container {
+		flex-direction: column;
+	}
+
+	.comp-image-film {
+		width: 15rem;
+		height: 10rem;
+	}
+
+	.comp-image-composing {
+		width: 15rem;
+		height: 10rem;
+	}
+}
+
+// ========================================
+// MARK: Orchestrations Page
+// ========================================
+.composing {
+	width: 100%;
+	background-color: $color_darkblue;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.composing-header {
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	object-fit: cover;
+}
+
+.comp-info {
+	display: flex;
+	padding: 2rem 5rem;
+	flex-direction: column;
+	align-items: center;
+}
+
+.comp-title {
+	color: white;
+	font-family: PlayfairDisplay;
+	font-size: $header1_size;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.comp-content {
+	font-family: PlayfairDisplay;
+	color: #a8c5d2;
+	text-align: center;
+	font-size: $body_size;
+}
+
+.composing-img {
+	width: 100%;
+	display: flex;
+	background-color: $color_darkblue;
+	border-top: 10px double $color_red;
+	border-bottom: 10px double $color_red;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 2rem 0;
+	box-sizing: border-box;
+}
+.composing-quote {
+	font-family: PlayfairDisplay;
+	padding: 0 3.5rem;
+	text-align: center;
+	font-size: 1.5rem;
+	font-family: PlayfairDisplay-Italic;
+	text-align: center;
+	color: white;
+}
+
+.composing-name {
+	text-align: center;
+	color: $color_lightblue;
+	font-family: PlayfairDisplay;
+	font-size: 2rem;
+	padding: 0 1rem;
+	margin: 2rem 5rem;
+	background-color: $color_red;
+	color: white;
+}
+
+.composing-disney-pic {
+	width: 15rem;
+	height: 20rem;
+	margin: 1rem 2rem 0;
+}
+
+.soundcloud-container {
+	display: flex;
+	align-items: center;
+}
+
+.soundcloud {
+	width: 350px;
+	height: 500px;
+	margin: 0 1rem;
+}
+
+.soundcloud-title {
+	color: white;
+	font-family: PlayfairDisplay-Bold;
+	font-size: $header2_size;
+	padding: 2rem 3rem;
+	text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+	.comp-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-bottom: 7vw;
+		background-color: $color_darkblue;
+	}
+
+	.comp-title {
+		font-size: 6vw;
+		margin-bottom: 4vw;
+	}
+
+	.composing-quote {
+		font-size: 1.65rem;
+		margin-bottom: 3rem;
+	}
+	.composing-name {
+		margin-bottom: 2rem;
+		font-size: 2rem;
+	}
+	.soundcloud {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: $color_darkblue;
+		padding-bottom: 2rem;
+	}
+}
+
+@media only screen and (max-width: 1170px) {
+	.soundcloud-container {
+		flex-direction: column;
+	}
+}
+@media only screen and (max-width: 650px) {
+	.composing-quote {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	.composing-name {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.composing-quote {
+		font-size: 1.25rem;
+	}
+	.composing-name {
+		margin-bottom: 2rem;
+	}
+	.comp-info {
+		padding: 2.5rem;
+	}
+	.comp-content {
+		font-size: 1rem;
+	}
+
+	.soundcloud {
+		width: 300px;
+		height: 500px;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.soundcloud {
+		width: 250px;
+		height: 500px;
+	}
+}
+// ========================================
+// MARK: Film Page
+// ========================================
+.film {
+	background-color: #000000;
+	max-width: 100%;
+}
+
+.film-header {
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.film-quote {
+	color: white;
+	font-family: 'PlayfairDisplay-Italic';
+	font-size: 2rem;
+	text-align: center;
+	padding: 3rem 20rem;
+	margin-bottom: 1rem;
+	background-color: rgba(128, 128, 128, 0.5);
+}
+
+.film-quote-name {
+	color: white;
+	font-family: PlayfairDisplay;
+	background-color: $color_red;
+	margin-top: 10px;
+	font-size: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.film-quote-container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.film-info {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.film-info-body-container {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	padding: 2rem 10rem;
+	flex-direction: column;
+	background-color: $color_darkblue;
+	box-sizing: border-box;
+}
+
+.film-info-title-container {
+	display: flex;
+	width: 100%;
+	background-color: black;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.film-info-carousel-container-root {
+	display: flex;
+	flex-direction: row;
+}
+
+.film-info-body-title {
+	color: white;
+	font-family: Caladea;
+	font-size: $header2_size;
+	margin-top: 1rem;
+}
+
+.film-info-body-paragraph {
+	color: $color_lightblue;
+	font-family: Caladea;
+	font-size: $body_size;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.film-info-body-quote {
+	background-color: $color_lightblue;
+	color: $color_darkblue;
+	font-family: Caladea;
+	font-size: $body_size;
+	padding: 1.5rem;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.film-info-title {
+	color: white;
+	font-family: PlayfairDisplay;
+	font-size: 2.5rem;
+	margin-top: 1rem;
+}
+
+.film-info-title-small-display {
+	display: none;
+}
+
+.film-info-title-large-display {
+	color: white;
+	font-family: PlayfairDisplay;
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+
+.film-info-sample-text-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: black;
+}
+
+.film-info-sample-text-title {
+	color: white;
+	font-family: Caladea;
+	font-size: 1.5rem;
+	margin: 2rem 0;
+	text-align: center;
+}
+
+.film-info-container {
+	display: flex;
+	flex-direction: row;
+	margin: 2rem;
+	margin-bottom: 3rem;
+}
+
+.film-info-content {
+	flex: 0.7;
+	color: white;
+	font-family: Caladea;
+	font-size: 1.5rem;
+	margin-left: 1.75vw;
+	text-align: 'center';
+	color: #a8c5d2;
+	padding-right: 2rem;
+}
+
+.film-info-img {
+	flex: 0.3;
+	background-image: url('./assets/stock-images/portrait.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 25vw;
+	height: 25vw;
+}
+
+.film-carousel-video-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 50%;
+}
+
+.film-carousel-nav-button {
+	width: 5rem;
+	outline: none;
+	text-decoration: none;
+	border-width: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	color: white;
+	font-size: 3rem;
+}
+
+.film-carousel-nav-buttons-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.film-soundcloud-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.film-soundcloud-row {
+	display: flex;
+}
+
+.film-soundcloud-container-root {
+	width: 100%;
+	background-color: $color_darkblue;
+	display: flex;
+	padding-top: 2rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.film-soundcloud-container-title {
+	margin-bottom: 2rem;
+	font-size: $header2_size;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	color: white;
+	font-family: PlayfairDisplay;
+}
+.film-soundcloud {
+	width: 400px;
+	margin: 1rem;
+}
+
+.film-carousel-slider {
+	width: 100%;
+	padding-bottom: 1rem;
+}
+
+.film-carousel-item {
+	width: 100%;
+}
+
+.film-carousel-item-div {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.film-carousel-item-text {
+	color: white;
+}
+
+.film-carousel-sound-container {
+	width: 100%;
+	height: 20rem;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	background-color: black;
+}
+@media only screen and (max-width: 1250px) {
+	.film-soundcloud {
+		width: 300px;
+	}
+	.film-quote {
+		padding: 1rem 10rem;
+		font-size: 1.75rem;
+	}
+	.film-quote-name {
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (max-width: 1000px) {
+	.film-header {
+		width: 100%;
+		height: 100vh;
+		background-position: 40% 40%;
+	}
+	.film-quote {
+		color: white;
+		padding: 1rem 10rem;
+	}
+
+	.film-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.film-quote-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+	}
+
+	.film-carousel-video-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		width: 75%;
+	}
+
+	.film-info-container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		margin-bottom: 4vw;
+		align-items: center;
+	}
+	.film-info-content {
+		flex: 0.7;
+		color: white;
+		font-family: Caladea;
+		font-size: 1.5rem;
+		text-align: center;
+		color: #a8c5d2;
+		padding: 1.5rem;
+		padding-top: 1rem;
+	}
+
+	.film-info-img {
+		flex: 0.3;
+		display: flex;
+		background-image: url('./assets/stock-images/portrait.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		min-width: 55vw;
+		min-height: 55vw;
+		align-self: center;
+		order: -1;
+	}
+
+	.film-info-title-small-display {
+		display: flex;
+		color: white;
+		font-family: Caladea;
+		font-size: 3rem;
+		margin-top: 1rem;
+	}
+
+	.film-img {
+		width: 100%;
+		background-color: white;
+		height: 100vw;
+	}
+
+	.film-info-body-container {
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		padding: 2rem;
+
+		flex-direction: column;
+		background-color: $color_darkblue;
+	}
+
+	.film-info-body-paragraph {
+		font-size: 1.5rem;
+	}
+
+	.film-info-body-title {
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (max-width: 925px) {
+	.film-soundcloud-container-title {
+		text-align: center;
+		margin: 0;
+		margin-bottom: 2rem;
+	}
+	.film-soundcloud-row {
+		flex-direction: column;
+	}
+	.film-soundcloud {
+		width: 350px;
+	}
+}
+@media only screen and (max-width: 850px) {
+	.film-quote {
+		padding: 1rem 7rem;
+		font-size: 1.5rem;
+	}
+	.film-quote-name {
+		font-size: 1.2rem;
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.film-quote {
+		padding: 1rem 3rem;
+		font-size: 1.4rem;
+	}
+	.film-quote-name {
+		font-size: 1rem;
+	}
+	.film-info-body-title-large {
+		font-size: 1.2rem;
+	}
+	.film-info-body-paragraph {
+		font-size: 1.2rem;
+	}
+	.film-soundcloud {
+		width: 275px;
+	}
+}
+// ========================================
+// MARK: Contact page
+// ========================================
+.contact {
+	background-color: $color_darkblue;
+	max-width: 100%;
+}
+
+.contact-header {
+	background-size: cover;
+	background-repeat: no-repeat;
+	max-width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	z-index: 3;
+}
+
+.contact-quote-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: rgba(128, 128, 128, 0.5);
+	padding: 1rem;
+	width: 100%;
+}
+
+.contact-quote {
+	color: white;
+	font-family: PlayfairDisplay-Bold;
+}
+
+.contact-quote-name {
+	color: white;
+	font-family: PlayfairDisplay-Italic;
+	margin: 1rem 0;
+	font-size: 2.5rem;
+	padding: 0 5rem;
+	text-align: center;
+}
+
+.contact-quote-author {
+	background-color: $color_red;
+	color: white;
+	font-family: PlayfairDisplay;
+	margin-top: 10px;
+	font-size: 1.5rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	text-align: center;
+}
+
+.contact-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+
+.contact-info-container {
+	display: flex;
+	flex: 0.7;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-social-container {
+	display: flex;
+	flex: 0.3;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3rem;
+}
+
+.contact-phone-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-phone-container a {
+	font-family: Caladea;
+	font-size: 1.5rem;
+	color: #a8c5d2;
+	margin-top: 1rem;
+}
+
+.contact-phone-container img {
+	width: 6rem;
+	height: 6rem;
+}
+
+.contact-location-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-location-container p {
+	font-family: Caladea;
+	font-size: 1.5rem;
+	color: white;
+}
+
+.contact-location-container img {
+	width: 8rem;
+	height: 8rem;
+	margin-bottom: 1rem;
+}
+
+.contact-email-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-email-container a {
+	font-family: Caladea;
+	font-size: 1.5rem;
+	color: #a8c5d2;
+}
+
+.contact-email-container img {
+	width: 6rem;
+	height: 6rem;
+}
+
+.contact-twitter-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact-instagram-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact-facebook-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact-social-button {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	width: 80%;
+	height: 6rem;
+	border-width: 1px;
+	border-color: white;
+	border-style: solid;
+	text-decoration: none;
+}
+
+.contact-social-button p {
+	text-align: center;
+	font-size: 1rem;
+	color: white;
+	margin-top: 5px;
+	font-family: Caladea;
+}
+
+.contact-social-button img {
+	width: 2rem;
+	height: 2rem;
+}
+
+.contact-airtable-form-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 3rem;
+}
+
+.contact-airtable-form-container h1 {
+	color: white;
+	font-family: Caladea-Bold;
+	font-size: 2rem;
+	margin-bottom: 3rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
+	text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+	.contact-quote-name {
+		font-size: 2rem;
+		padding: 0 1rem;
+	}
+	.contact-info-container {
+		flex-direction: column;
+	}
+
+	.contact-social-container {
+		flex-direction: column;
+	}
+
+	.contact-phone-container {
+		margin-bottom: 2rem;
+	}
+
+	.contact-email-container {
+		margin-bottom: 2rem;
+	}
+
+	.contact-location-container {
+		margin-bottom: 2rem;
+		order: -1;
+	}
+
+	.contact-twitter-container {
+		margin-bottom: 2rem;
+	}
+
+	.contact-instagram-container {
+		margin-bottom: 2rem;
+	}
+
+	.contact-facebook-container {
+		margin-bottom: 2rem;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.contact-quote-name {
+		font-size: 1.75rem;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.contact-quote-name {
+		font-size: 1.5rem;
+	}
+	.contact-quote-author {
+		font-size: 1.2rem;
+	}
+}
+
+// ========================================
+// MARK: Educational Info Page
+// ========================================
+.educational {
+	background-color: $color_darkblue;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.educational-header {
+	width: 100%;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+.educational-header-img {
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+}
+.educational-quote-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: rgba(128, 128, 128, 0.3);
+	padding: 2rem 0;
+}
+.educational-quote {
+	color: white;
+	font-family: 'PlayfairDisplay-Italic';
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	padding: 1rem 20rem;
+}
+.educational-quote-name {
+	color: white;
+	font-family: PlayfairDisplay-Bold;
+	background-color: $color_red;
+	font-size: 2rem;
+	padding: 0 2rem;
+}
+
+.educational-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.educational-info-title-small-display {
+	display: none;
+}
+
+.educational-info-title-large-display {
+	color: white;
+	font-family: PlayfairDisplay;
+	font-size: $header1_size;
+	margin-top: 1rem;
+}
+.educational-info-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 2rem;
+	margin-bottom: 3rem;
+}
+
+.educational-info-content {
+	flex: 0.7;
+	color: white;
+	font-family: Caladea;
+	font-size: $body_size;
+	color: $color_lightblue;
+	padding: 0 0.5rem;
+}
+.educational-info-img {
+	flex: 0.3;
+	height: 25rem;
+	width: 25rem;
+	background-image: url('./assets/images/clinics_and_conducting/headshot.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.educational-img {
+	width: 100%;
+	height: 27rem;
+	background-color: $color_darkblue;
+	border-top: 10px double $color_red;
+	border-bottom: 10px double $color_red;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.educational-img h1 {
+	font-size: 2rem;
+	font-family: 'PlayfairDisplay-Italic';
+	text-align: center;
+	color: white;
+	margin-bottom: 2rem;
+	padding: 0 5rem;
+}
+.educational-img h2 {
+	font-size: 1.5rem;
+	color: white;
+	font-family: PlayfairDisplay;
+	background-color: $color_red;
+	margin-top: 10px;
+	padding: 0 3rem;
+	text-align: center;
+	margin: 10px 2rem 0;
+}
+.education-souncloud-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+.education-soundcloud-title {
+	font-size: 3rem;
+	color: white;
+	font-family: PlayfairDisplay-SemiBoldItalic;
+	text-align: center;
+	margin: 2rem 0;
+	padding: 0 0.5rem;
+}
+.education-soundcloud-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.education-soundcloud {
+	margin: 0.5rem;
+	width: 400px;
+	height: 600px;
+}
+
+.cac-childrens-program-video-root {
+	box-sizing: border-box;
+	padding-top: 2rem;
+	background-color: black;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 2rem;
+}
+
+.cac-childrens-program-video-root h1 {
+	text-align: center;
+	color: white;
+	font-family: 'PlayfairDisplay';
+	margin: 0 1rem 0;
+}
+
+.cac-info-blurb-root {
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 2rem 15rem;
+}
+
+.cac-info-blurb-root img {
+	width: 22rem;
+	height: 15rem;
+}
+
+.cac-info-blurb-root p {
+	color: white;
+	font-family: 'PlayfairDisplay-Italic';
+	font-size: 1.5rem;
+}
+
+.cac-info-blurb-author {
+	background-color: $color_lightblue;
+	color: $color_darkblue !important;
+	padding: 0 1rem;
+	margin-top: 1rem;
+	font-family: 'PlayfairDisplay-Bold' !important;
+}
+
+.cac-teacher-blurb-root {
+	width: 95%;
+	padding: 5rem 0;
+	border-color: $color_red;
+	border-width: 10px 0 0 0;
+	border-style: double;
+	margin-top: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.cac-teacher-blurb-root img {
+	width: 12rem;
+	height: 12rem;
+	padding: 1rem;
+}
+
+.cac-teacher-blurb-root h1 {
+	font-size: 2rem;
+	color: white;
+	font-family: 'PlayfairDisplay-Bold';
+}
+
+.cac-teacher-blurb-root p {
+	font-size: 1rem;
+	color: $color_lightblue;
+	font-family: 'PlayfairDisplay-Bold';
+}
+
+.embed-container {
+	position: relative;
+	height: 50rem;
+	overflow: hidden;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+	position: relative;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@media only screen and (max-width: 1400px) {
+	.education-soundcloud-title {
+		font-size: 2.5rem;
+	}
+	.education-soundcloud {
+		width: 350px;
+	}
+	.educational-quote {
+		padding: 1rem 10rem;
+	}
+	.cac-teacher-blurb-root {
+		flex-direction: column;
+	}
+}
+@media only screen and (max-width: 1100px) {
+	.education-soundcloud {
+		width: 300px;
+	}
+	.educational-info-container {
+		flex-direction: column;
+		align-items: center;
+	}
+	.educational-info-title-large-display {
+		display: none;
+	}
+	.educational-info-title-small-display {
+		display: block;
+		color: white;
+		font-family: PlayfairDisplay;
+		font-size: $header1_size;
+		margin: 1rem 0;
+	}
+	.educational-info-content {
+		margin-top: 1rem;
+		text-align: center;
+	}
+
+	.educational-info-img {
+		order: -1;
+		display: flex;
+		max-width: 15rem;
+		min-height: 15rem;
+	}
+	.educational-quote {
+		font-size: 2rem;
+		padding: 1rem 7rem;
+	}
+
+	.educational-quote-name {
+		font-size: 1.5rem;
+	}
+
+	.cac-info-blurb-root {
+		text-align: center;
+		justify-content: center;
+		flex-direction: column;
+		box-sizing: border-box;
+		padding: 2rem 3rem;
+	}
+
+	.cac-info-blurb-root div {
+		margin: 0 !important;
+	}
+
+	.cac-info-blurb-root > div > p {
+		text-align: left !important;
+	}
+
+	.cac-info-blurb-root img {
+		width: 22rem;
+		height: 15rem;
+		margin: 0 0 2rem 0;
+	}
+	.cac-info-blurb-image-container {
+		order: -1;
+	}
+}
+@media only screen and (max-width: 950px) {
+	.education-soundcloud-row {
+		flex-direction: column;
+	}
+	.education-soundcloud {
+		width: 400px;
+		height: 700px;
+	}
+	.educational-quote {
+		font-size: 1.75rem;
+	}
+	.cac-info-blurb-root p {
+		font-size: 1.2rem;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.educational-quote {
+		font-size: 1.5rem;
+	}
+	.educational-quote-name {
+		font-size: 1rem;
+	}
+	.cac-teacher-blurb-img {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+	}
+	.cac-teacher-blurb-text {
+		margin: 2rem 2rem;
+		text-align: center;
+	}
+
+	.cac-teacher-blurb-text > h1 {
+		margin-bottom: 1rem;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.educational-header-img {
+		margin-right: 4rem;
+	}
+	.educational-img h1 {
+		font-size: 1.75rem;
+	}
+	.educational-img h2 {
+		font-size: 1.25rem;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.educational-quote {
+		font-size: 1.5rem;
+		padding: 1rem 5rem;
+	}
+
+	.educational-quote-name {
+		font-size: 1rem;
+	}
+
+	.educational-img {
+		height: 35rem;
+	}
+
+	.educational-img h1 {
+		font-size: 1.5;
+	}
+	.educational-img h2 {
+		font-size: 1rem;
+	}
+}
+@media only screen and (max-width: 450px) {
+	.education-soundcloud {
+		width: 300px;
+		height: 600px;
+	}
+
+	.educational-info-title-small-display {
+		font-size: 2rem;
+	}
+	.educational-info-content {
+		font-size: 1.25rem;
+	}
+
+	.educational-header-img {
+		margin-right: 8rem;
+	}
+
+	.educational-img h1 {
+		font-size: 1.5rem;
+	}
+
+	.educational-quote {
+		padding: 1rem 3rem;
+		font-size: 1.5rem;
+	}
+	.cac-info-blurb-root p {
+		font-size: 1rem;
+	}
+
+	.cac-info-blurb-root img {
+		width: 18rem;
+		height: 12rem;
+	}
+}
+@media only screen and (max-width: 400px) {
+	.educational-quote {
+		padding: 1rem 2rem;
+	}
+
+	.educational-quote-name {
+		margin: 0 2rem;
+	}
+	.educational-img {
+		height: 45rem;
+	}
+}
+
+// ========================================
+// MARK: Footer
+// ========================================
+.footer {
+	height: 50px;
+	max-width: 100%;
+	background-color: $color_darkblue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-text {
+	color: $color_lightblue;
+	font-family: PlayfairDisplay;
+}
+
+// ========================================
+// MARK: Effects for mouse hovering
+// ========================================
+.hvr-float {
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+.hvr-float:hover,
+.hvr-float:focus,
+.hvr-float:active {
+	-webkit-transform: translateY(-8px);
+	transform: translateY(-8px);
+}
+
+.hvr-grow {
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+}
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
