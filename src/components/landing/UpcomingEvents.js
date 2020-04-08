@@ -3,6 +3,8 @@ import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import { Link } from 'react-router-dom';
 
+import data from '../../UpcomingEvents.json';
+
 const EventRowItem = ({ data }) => {
 	return (
 		<Zoom duration={500}>
@@ -41,70 +43,6 @@ const EventRowItem = ({ data }) => {
 };
 
 const UpcomingEvents = () => {
-	const data = [
-		{
-			date: 'July 25, 2020',
-			city: 'San Antonio, TX',
-			building: 'Lila Cockrell Theatre',
-			time: '7:00 pm',
-			description:
-				'Guest conducting the USAF Band of The West premiering a new piece.',
-			key: '0',
-		},
-		{
-			date: 'October 14, 2020',
-			city: 'LaPorte, IN',
-			building: 'LaPorte Civic Center',
-			time: '9:00 pm, 10:15 pm, 11:30 pm',
-			description:
-				"Guest conducting the LaPorte County Symphony Orchestra for their annual Children's Program",
-			key: '1',
-		},
-		{
-			date: 'November  26, 2020',
-			city: 'Orlando, FL',
-			building: 'Magic Kingdom',
-			time: '9:30 am',
-			description:
-				"Guest conducting new music for Disney's Thanksgiving Day Parade of Bands",
-			key: '2',
-		},
-		{
-			date: 'Dec 17-19, 2020',
-			city: 'Chicago, IL',
-			building: 'McCormick Place',
-			time: 'Various Times',
-			description: 'Performing with the Harry Watters Quartet',
-			key: '3',
-		},
-		{
-			date: 'February 11, 2021',
-			city: 'Murfreesboro, TN',
-			building: 'MTSU Recital Hall',
-			time: '8:00 pm',
-			description:
-				'Guest conducting the Tennessee Valley Winds premiering a new piece',
-			key: '3',
-		},
-		{
-			date: 'February 20, 2021',
-			city: 'Murfreesboro, TN',
-			building: 'World Outreach Church',
-			time: '3:00 pm',
-			description:
-				'Guest conducting the Rutherford County 11/12 High School Honor Band',
-			key: '3',
-		},
-		{
-			date: 'April 25, 2021',
-			city: 'Bonita Springs, FL',
-			building: 'Estero High School',
-			time: '2:00 pm',
-			description:
-				'Guest conducting the Bonita Springs Concert Band premiering a new piece',
-			key: '3',
-		},
-	];
 	return (
 		<div className='landing-upcomingevents-root'>
 			<Fade top>
@@ -116,7 +54,7 @@ const UpcomingEvents = () => {
 				</Link>
 			</Fade>
 
-			{data.map((value) => {
+			{data.upcoming_events.map((value) => {
 				return <EventRowItem data={value} key={value.key} />;
 			})}
 		</div>
