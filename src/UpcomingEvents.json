@@ -1,60 +1,136 @@
-{
-	"upcoming_events": [
-		{
-			"date": "July 25, 2020",
-			"city": "San Antonio, TX",
-			"building": "Lila Cockrell Theatre",
-			"time": "7:00pm",
-			"description": "Guest conducting the USAF Band of The West premiering a new piece.",
-			"key": "0"
-		},
-		{
-			"date": "October 14, 2020",
-			"city": "LaPorte, IN",
-			"building": "LaPorte Civic Center",
-			"time": "9:00pm, 10:15pm, 11:30pm",
-			"description": "Guest conducting the LaPorte County Symphony Orchestra for their annual Children's Program.",
-			"key": "1"
-		},
-		{
-			"date": "November  26, 2020",
-			"city": "Orlando, FL",
-			"building": "Magic Kingdom",
-			"time": "9:30am",
-			"description": "Guest conducting new music for Disney's Thanksgiving Day Parade of Bands.",
-			"key": "2"
-		},
-		{
-			"date": "Dec 17-19, 2020",
-			"city": "Chicago, IL",
-			"building": "McCormick Place",
-			"time": "Various Times",
-			"description": "Performing with the Harry Watters Quartet.",
-			"key": "3"
-		},
-		{
-			"date": "February 11, 2021",
-			"city": "Murfreesboro, TN",
-			"building": "MTSU Recital Hall",
-			"time": "8:00pm",
-			"description": "Guest conducting the Tennessee Valley Winds premiering a new piece.",
-			"key": "4"
-		},
-		{
-			"date": "February 20, 2021",
-			"city": "Murfreesboro, TN",
-			"building": "World Outreach Church",
-			"time": "3:00pm",
-			"description": "Guest conducting the Rutherford County 11/12 High School Honor Band.",
-			"key": "5"
-		},
-		{
-			"date": "April 25, 2021",
-			"city": "Bonita Springs, FL",
-			"building": "Estero High School",
-			"time": "2:00pm",
-			"description": "Guest conducting the Bonita Springs Concert Band premiering a new piece.",
-			"key": "6"
-		}
-	]
-}
+import React from 'react';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+import { Link } from 'react-router-dom';
+
+const EventRowItem = ({ data }) => {
+    return (
+        <Zoom duration={500}>
+            <div className='landing-upcomingevents-eventrowitem-container'>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        width: '100%',
+                    }}
+                >
+                    <div className='landing-upcomingevents-eventrow-item-column-1'>
+                        <p className='landing-upcomingevents-eventrow-item-eventdate'>
+                            {data.date}
+                        </p>
+                    </div>
+                    <p className='landing-upcomingevents-eventrow-item-description-large'>
+                        {data.description}
+                    </p>
+
+                    <div className='landing-upcomingevents-eventrow-item-column-2'>
+                        <p className='landing-upcomingevents-eventrow-item-eventcity'>
+                            {data.city}
+                        </p>
+                        <p className='landing-upcomingevents-eventrow-item-eventbuildingtime'>
+                            {data.building} @ {data.time}
+                        </p>
+                    </div>
+                </div>
+                <p className='landing-upcomingevents-eventrow-item-description-small'>
+                    {data.description}
+                </p>
+            </div>
+        </Zoom>
+    );
+};
+
+const UpcomingEvents = () => {
+    const data = [
+        {
+            date: 'December 5', 
+            description: 'Premiere with the Shoals Symphony Orchestra', 
+            city: 'Florence, AL', 
+            building: 'Norton Auditorium',
+            time: '3:00 PM CST',
+            key: '1',
+        },
+        {
+            date: 'December 16-18', 
+            description: 'Leading clinics and performances at The Midwest Clinic', 
+            city: 'Chicago, IL', 
+            building: 'McCormick PLace',
+            time: '10:00 AM CST',
+            key: '2',
+        },
+        {
+            date: 'January 6-8',
+            description: 'Leading clinics at the Jazz Education Conference', 
+            city: 'Dallas, TX', 
+            building: 'Hyatt Regency Ballroom',
+            time: '3:00 PM CST',
+            key: '3',
+        },
+        {
+            date: 'January 23', 
+            description: 'Guest conducting premiere with the Naples Philharmonic', 
+            city: 'Naples, FL', 
+            building: 'Hayes Hall',
+            time: '2:00 PM & 7:00 PM EST',
+            key: '4',
+        },
+        {
+            date:  'February 20', 
+            description: ' Guest conducting premiere with the Bonita Springs Community Band',
+            city: 'Bonita Springs, FL', 
+            building: 'Riverside Park',
+            time: '2:00 PM EST',
+            key: '5',
+        },
+        {
+            date:  'March 3', 
+            description: ' Guest conduct the Florida Gulf Coast University Wind Ensemble',  
+            city: ' Fort Myers, FL', 
+            building: 'Lehigh Senior High School',
+            time: '7:30 PM EST',
+            key: '6',
+        },
+        {
+            date: 'March 21', 
+            description: 'Guest conducting and recording with Vanderbilt Wind Symphony', 
+            city: 'Nashville, TN', 
+            building: 'Vanderbilt Recital Hall',
+            time: '10:00 AM CST',
+            key: '7',
+        },
+        {
+            date: 'April 8', 
+            description: 'Clinic at the Midwest Rhythm Summit', 
+            city: 'Fremont, OH', 
+            building: 'Terra Vista College',
+            time: '2:00 PM EST',
+            key: '8',
+        },
+        {
+            date: 'April 14', 
+            description: 'Clinic with The Sessions at Troy University', 
+            city: 'Troy, AL', 
+            building: 'Crosby Theatre',
+            time: '1:00 PM CST',
+            key: '9',
+        },
+    ];
+    return (
+        <div className='landing-upcomingevents-root'>
+            <Fade top>
+                <h1 className='landing-upcoming-events-title'>Upcoming Events</h1>
+                <Link className='landing-upcoming-events-subtitle' to='/contact'>
+                    <h2 style={{ fontSize: '1.5rem', margin: '5px 0 3rem' }}>
+                        Book an Event
+                    </h2>
+                </Link>
+            </Fade>
+
+            {data.map((value) => {
+                return <EventRowItem data={value} key={value.key} />;
+            })}
+        </div>
+    );
+};
+
+export default UpcomingEvents;
