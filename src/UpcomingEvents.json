@@ -113,7 +113,7 @@ const UpcomingEvents = () => {
             building: 'Crosby Theatre',
             time: '1:00 PM CST',
             key: '9',
-        },
+        }
     ];
     return (
         <div className='landing-upcomingevents-root'>
