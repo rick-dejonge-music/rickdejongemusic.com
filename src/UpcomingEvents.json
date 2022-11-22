@@ -6,7 +6,7 @@
 			"city": "Bonita Springs, FL",
 			"building": "Riverside Park Amphitheater",
 			"time": "2:00 pm",
-			"key": "1",
+			"key": "1"
 		},
 		{
 			"date": "November 13",
@@ -14,7 +14,7 @@
 			"city": "Naples, Fl",
 			"building": "Cambier Park",
 			"time": "2:00 pm",
-			"key": "2",
+			"key": "2"
 		},
 		{
 			"date": "December 2 & 3",
@@ -22,7 +22,7 @@
 			"city": "Reno, NV",
 			"building": "Pioneer Center",
 			"time": "7:00 pm",
-			"key": "3",
+			"key": "3"
 		},
 		{
 			"date": "December 3 & 4",
@@ -30,7 +30,7 @@
 			"city": "Reno, NV",
 			"building": "Pioneer Center",
 			"time": "2:00 pm",
-			"key": "4",
+			"key": "4"
 		},
 		{
 			"date": "December 10",
@@ -38,7 +38,7 @@
 			"city": "La Porte, IN",
 			"building": "La Porte Civic Center",
 			"time": "7:00 pm",
-			"key": "5",
+			"key": "5"
 		},
 		{
 			"date": "December 19, 20, & 21",
@@ -46,7 +46,7 @@
 			"city": "Chicago, IL",
 			"building": "McCormick Place",
 			"time": "11am - 1pm Daily",
-			"key": "6",
+			"key": "6"
 		},
 		{
 			"date": "January 22",
@@ -54,7 +54,7 @@
 			"city": "Bonita Springs, FL",
 			"building": "Riverside Park Amphitheater",
 			"time": "2:00 pm",
-			"key": "7",
+			"key": "7"
 		},
 		{
 			"date": "April 23",
@@ -62,7 +62,7 @@
 			"city": "Bonita Springs, FL",
 			"building": "Riverside Park Amphitheater",
 			"time": "2:00 pm",
-			"key": "8",
+			"key": "8"
 		},
 		{
 			"date": "July 21",
@@ -70,7 +70,7 @@
 			"city": "San Antonio, TX",
 			"building": "Lila Cockrell Theatre",
 			"time": "7:00 pm",
-			"key": "9",
+			"key": "9"
 		}
 	]
 }
